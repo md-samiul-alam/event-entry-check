@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express()
 const distDir = '../dist/event-entry-check'
+const port = process.env.PORT || 4040
 
 app.use(express.static(path.join(__dirname, distDir)))
 app.use(/^((?!(api)).)*/, (req, res) => {
@@ -20,10 +21,10 @@ app.get('/api/health-check',
   }
 );
 
-app.listen(4040, (error) =>{
+app.listen(port, (error) =>{
     if(error) {
         console.log(error)
     } else {
-        console.log('server is listening to port 4040')
+        console.log('server is listening to port '+port)
     }
 })
