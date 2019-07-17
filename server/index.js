@@ -1,30 +1,18 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
+// config should be imported before importing any other file
+const config = require('./config/config');
+const app = require('./config/express');
+require('./config/mongoose');
 
-const router = require('./router');
-
-const app = express()
-const distDir = '../dist/event-entry-check'
-const port = process.env.PORT || 4040
-
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use('/api', router)
-
-app.use(express.static(path.join(__dirname, distDir)))
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, distDir + '/index.html'))
-});
-
-
-
-app.listen(port, (error) =>{
-    if(error) {
-        console.log(error)
+// module.parent check is required to support mocha watch
+// src: https://github.com/mochajs/mocha/issues/1912
+if (!module.parent) {
+  app.listen(config.port, (error) => {
+    if(error){
+      console.error(error);
     } else {
-        console.log('server is listening to port '+port)
+      console.info(`server started on port ${config.port}`);
     }
-})
+  });
+}
+
+module.exports = app;
