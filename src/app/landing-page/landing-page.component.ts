@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from '../event.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  visitorsList:any = [];
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
+    this.eventService
+      .listVisitors()
+      .subscribe(data => this.visitorsList = data)
   }
-
 }
