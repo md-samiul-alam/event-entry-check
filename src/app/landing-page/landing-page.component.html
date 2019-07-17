@@ -1,6 +1,9 @@
-<div  fxLayout="column" fxLayoutAlign="center center">
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div class="title">
+    VISITORS LIST
+  </div>
   <table>
-    <tr>
+    <thead>
       <th>
         Registration ID
       </th>
@@ -13,20 +16,22 @@
       <th>
         Contact
       </th>
-    </tr>
-    <tr *ngFor="let visitor of visitorsList">
-      <td>
-        {{visitor.regId}}
-      </td>
-      <td>
-        {{visitor.name}}
-      </td>
-      <td>
-        {{visitor.email}}
-      </td>
-      <td>
-        {{visitor.contact}}
-      </td>
-    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visitor of visitorsList">
+        <td>
+          {{visitor.regId}}
+        </td>
+        <td>
+          {{visitor.name}}
+        </td>
+        <td>
+          {{visitor.email}}
+        </td>
+        <td>
+          {{visitor.contact}}
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
