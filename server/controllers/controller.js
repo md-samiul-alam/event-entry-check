@@ -3,16 +3,14 @@ const omit = require('lodash.omit')
 const VisitedModel = require('../models/visited.model')
 
 module.exports = {
-  addVisitor: (request, response) => {
-		if(request.body.secret === 'hellokitty'){
+	addVisitor: (request, response) => {
+		if (request.body.secret === 'hellokitty') {
 			const data = new VisitedModel(omit(request.body, ['secret']))
 			data.save((error) => {
-				if(error) {
+				if (error) {
 					response.status(500).json(error)
 				} else {
-					response.status(201).json({
-						data,
-					})
+					response.status(201).json(data)
 				}
 			})
 		} else {
@@ -21,4 +19,10 @@ module.exports = {
 			})
 		}
 	},
+
+	listVisitors(request, response) {
+		VisitedModel.find()
+			.then(data => response.status(200).json(data))
+			.catch(error => response.status(500).json(error))
+	}
 }

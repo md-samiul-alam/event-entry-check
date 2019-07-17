@@ -13,5 +13,7 @@ router.get('/health-check',
 
 router.route('/visited')
   .post(controller.addVisitor)
+  .get(controller.listVisitors)
+
 
 module.exports = router;
