@@ -14,116 +14,18 @@
         Contact
       </th>
     </tr>
-    <tr>
+    <tr *ngFor="let visitor of visitorsList">
       <td>
-        01720358015
+        {{visitor.regId}}
       </td>
       <td>
-        Md. Samiul Alam
+        {{visitor.name}}
       </td>
       <td>
-        samiulalam555@gmail.com
+        {{visitor.email}}
       </td>
       <td>
-        01625077945
-      </td>
-    </tr>
-    <tr>
-      <td>
-        01720358015
-      </td>
-      <td>
-        Md. Samiul Alam
-      </td>
-      <td>
-        samiulalam555@gmail.com
-      </td>
-      <td>
-        01625077945
-      </td>
-    </tr>
-    <tr>
-      <td>
-        01720358015
-      </td>
-      <td>
-        Md. Samiul Alam
-      </td>
-      <td>
-        samiulalam555@gmail.com
-      </td>
-      <td>
-        01625077945
-      </td>
-    </tr>
-    <tr>
-      <td>
-        01720358015
-      </td>
-      <td>
-        Md. Samiul Alam
-      </td>
-      <td>
-        samiulalam555@gmail.com
-      </td>
-      <td>
-        01625077945
-      </td>
-    </tr>
-    <tr>
-      <td>
-        01720358015
-      </td>
-      <td>
-        Md. Samiul Alam
-      </td>
-      <td>
-        samiulalam555@gmail.com
-      </td>
-      <td>
-        01625077945
-      </td>
-    </tr>
-    <tr>
-      <td>
-        01720358015
-      </td>
-      <td>
-        Md. Samiul Alam
-      </td>
-      <td>
-        samiulalam555@gmail.com
-      </td>
-      <td>
-        01625077945
-      </td>
-    </tr>
-    <tr>
-      <td>
-        01720358015
-      </td>
-      <td>
-        Md. Samiul Alam
-      </td>
-      <td>
-        samiulalam555@gmail.com
-      </td>
-      <td>
-        01625077945
-      </td>
-    </tr>
-    <tr>
-      <td>
-        01720358015
-      </td>
-      <td>
-        Md. Samiul Alam
-      </td>
-      <td>
-        samiulalam555@gmail.com
-      </td>
-      <td>
-        01625077945
+        {{visitor.contact}}
       </td>
     </tr>
   </table>
