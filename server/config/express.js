@@ -25,6 +25,12 @@ res.sendFile(path.join(__dirname, '../../dist/index.html'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use((request, response, next) => {
+  console.log(request.path)
+  console.log(request.body)
+  next()
+})
+
 // API router
 app.use('/api/', routes);
 

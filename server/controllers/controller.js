@@ -8,7 +8,11 @@ module.exports = {
 			const data = new VisitedModel(omit(request.body, ['secret']))
 			data.save((error) => {
 				if (error) {
-					response.status(500).json(error)
+					if(error.code == 11000){
+						response.status(501).json(error);
+					} else {
+						response.status(500).json(error)
+					}
 				} else {
 					response.status(201).json(data)
 				}
