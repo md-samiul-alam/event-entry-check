@@ -2,7 +2,8 @@
   <div class="title">
     VISITORS LIST
   </div>
-  <table>
+  <div *ngIf="!visitorsList.length" class="no-visitor">None has visited yet!</div>
+  <table *ngIf="visitorsList.length">
     <thead>
       <th>
         Registration ID
